@@ -5,10 +5,11 @@ import 'package:pokedex_clean_app/domain/entities/poke.dart';
 import 'package:pokedex_clean_app/infrastructure/models/poke_model.dart';
 
 class ApiPokeDatasourceImpl implements PokeDatasource {
+  final Dio dio;
+  ApiPokeDatasourceImpl({required this.dio});
   @override
   Future<List<Poke>> getPokeList() async {
     try {
-      final Dio dio = Dio();
       Response response = await dio.get(
         "https://pokeapi.co/api/v2/pokemon?limit=1400&offset=0",
       );
@@ -26,7 +27,6 @@ class ApiPokeDatasourceImpl implements PokeDatasource {
   @override
   Future<int> getCount() async {
     try {
-      final Dio dio = Dio();
       Response response = await dio.get(
         "https://pokeapi.co/api/v2/pokemon?limit=5&offset=0",
       );

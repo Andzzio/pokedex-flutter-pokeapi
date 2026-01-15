@@ -1,3 +1,4 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:pokedex_clean_app/infrastructure/datasources/api_poke_datasource_impl.dart';
 import 'package:pokedex_clean_app/infrastructure/repositories/poke_repository_impl.dart';
@@ -35,7 +36,9 @@ class MainApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(
           create: (_) => PokeViewProvider(
-            repository: PokeRepositoryImpl(datasource: ApiPokeDatasourceImpl()),
+            repository: PokeRepositoryImpl(
+              datasource: ApiPokeDatasourceImpl(dio: Dio()),
+            ),
           )..loadPokes(),
         ),
       ],
