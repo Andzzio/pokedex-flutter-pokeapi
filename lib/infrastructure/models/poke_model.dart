@@ -46,7 +46,7 @@ class Result {
       name: name,
       id: int.parse(strId),
       icon:
-          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/strId.png",
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/$strId.png",
     );
   }
 }

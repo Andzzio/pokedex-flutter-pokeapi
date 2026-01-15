@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:pokedex_clean_app/infrastructure/datasources/api_poke_datasource_impl.dart';
+import 'package:pokedex_clean_app/infrastructure/repositories/poke_repository_impl.dart';
+import 'package:pokedex_clean_app/presentation/providers/poke_view_provider.dart';
 import 'package:pokedex_clean_app/presentation/screens/main_screen.dart';
+import 'package:provider/provider.dart';
 import 'package:window_manager/window_manager.dart';
 
 void main() async {
@@ -27,9 +31,18 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: MainScreen(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (_) => PokeViewProvider(
+            repository: PokeRepositoryImpl(datasource: ApiPokeDatasourceImpl()),
+          )..loadPokes(),
+        ),
+      ],
+      child: const MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: MainScreen(),
+      ),
     );
   }
 }

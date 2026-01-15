@@ -1,10 +1,10 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:pokedex_clean_app/domain/datasources/api_poke_datasource.dart';
+import 'package:pokedex_clean_app/domain/datasources/poke_datasource.dart';
 import 'package:pokedex_clean_app/domain/entities/poke.dart';
 import 'package:pokedex_clean_app/infrastructure/models/poke_model.dart';
 
-class ApiPokeDatasourceImpl implements ApiPokeDatasource {
+class ApiPokeDatasourceImpl implements PokeDatasource {
   @override
   Future<List<Poke>> getPokeList() async {
     try {
