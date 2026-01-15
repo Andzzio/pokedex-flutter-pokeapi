@@ -14,4 +14,9 @@ class PokeViewProvider extends ChangeNotifier {
     count = await repository.getCount();
     notifyListeners();
   }
+
+  @override
+  void dispose() {
+    super.dispose();
+  }
 }
