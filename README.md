@@ -54,6 +54,36 @@ Handles the UI and user interaction.
 - **Widgets**: Reusable UI components (`PokeView`, `PokeBubble`, `PokeButton`).
 - **Providers**: State management logic (`PokeViewProvider`).
 
+## 🏗️ Project Structure
+
+```text
+lib
+├── domain
+│   ├── datasources
+│   │   └── poke_datasource.dart
+│   ├── entities
+│   │   └── poke.dart
+│   └── repositories
+│       └── poke_repository.dart
+├── infrastructure
+│   ├── datasources
+│   │   └── api_poke_datasource_impl.dart
+│   ├── models
+│   │   └── poke_model.dart
+│   └── repositories
+│       └── poke_repository_impl.dart
+├── main.dart
+└── presentation
+    ├── providers
+    │   └── poke_view_provider.dart
+    ├── screens
+    │   └── main_screen.dart
+    └── widgets
+        ├── poke_bubble.dart
+        ├── poke_button.dart
+        └── poke_view.dart
+```
+
 ## 🚀 Getting Started
 
 1.  **Clone the repository:**
